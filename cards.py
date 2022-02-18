@@ -1,7 +1,9 @@
-# some exercises about a deck of cards_though
+# some exercises about a deck of cards_thought
 import random
 
-cards_though = []
+import cards
+
+cards_thought = []
 suits = ('spade', 'coppe', 'denari', 'bastoni')
 numbers = (range(1, 11))
 decks = []
@@ -28,11 +30,11 @@ class Card:
         print(f'Questa carta è un {self.number} di {self.suit}')
 
 def think_random_card():
-    '''generate a random card and append it to cards_though list'''
+    '''generate a random card and append it to cards_thought list'''
     suits = ('spade', 'coppe', 'denari', 'bastoni')
     numbers = list(range(1, 11))
     new_card = Card(random.choice(numbers), random.choice(suits))
-    cards_though.append(new_card)
+    cards_thought.append(new_card)
     print(f'Sto pensando a un {new_card.number} di {new_card.suit}.')
 
 class Deck:
@@ -44,6 +46,15 @@ class Deck:
     def __str__(self):
         '''better describe the deck'''
         return f'Questo mazzo ha {len(self.cards_deck)} carte.'
+
+    def shuffle_deck(self):
+        print('Il mazzo è stato mischiato.')
+        return random.shuffle(self.cards_deck)
+
+    def look_next_card(self):
+        self.cards_deck = iter(self.cards_deck)
+        return print(next(self.cards_deck))
+
 
 def create_new_deck():
     '''create a new dew'''
