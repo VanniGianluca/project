@@ -33,7 +33,7 @@ def think_random_card():
     numbers = list(range(1, 11))
     new_card = Card(random.choice(numbers), random.choice(suits))
     cards_though.append(new_card)
-    return f'Sto pensando a un {new_card.number} di {new_card.suit}.'
+    print(f'Sto pensando a un {new_card.number} di {new_card.suit}.')
 
 class Deck:
     '''a class representing a deck'''
@@ -41,9 +41,17 @@ class Deck:
         '''initialise deck attributes'''
         self.cards_deck = cards_deck
 
+    def __str__(self):
+        '''better describe the deck'''
+        return f'Questo mazzo ha {len(self.cards_deck)} carte.'
+
 def create_new_deck():
+    '''create a new dew'''
     new_deck = Deck()
-    new_deck.cards_deck.append(Card((number for number in numbers), (suit for suit in suits)))
+    # for number in numbers:
+    #     for suit in suits:
+    #         new_deck.cards_deck.append(Card(number, suit))
+    new_deck.cards_deck = [Card(number, suit) for number in numbers for suit in suits]
     return decks.append(new_deck)
 
 
