@@ -1,8 +1,6 @@
 # some exercises about a deck of cards_thought
 import random
 
-import cards
-
 cards_thought = []
 suits = ('spade', 'coppe', 'denari', 'bastoni')
 numbers = (range(1, 11))
@@ -53,15 +51,12 @@ class Deck:
 
     def look_next_card(self):
         self.cards_deck = iter(self.cards_deck)
-        return print(next(self.cards_deck))
+        return print(next(self.cards_deck, 'Il mazzo è finito.'))
 
 
 def create_new_deck():
     '''create a new dew'''
     new_deck = Deck()
-    # for number in numbers:
-    #     for suit in suits:
-    #         new_deck.cards_deck.append(Card(number, suit))
     new_deck.cards_deck = [Card(number, suit) for number in numbers for suit in suits]
     return decks.append(new_deck)
 

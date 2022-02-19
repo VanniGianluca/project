@@ -1,18 +1,13 @@
-import cards
 from cards import *
-# asso_di_bastoni = Card(1, 'bastoni')
-# # due_di_denari = Card(4, 'pillola')
-# asso_di_bastoni.describe_card()
-# # due_di_denari.describe_card()
+
 print(f'Adesso penserò a 3 carte...')
 think_random_card()
 think_random_card()
 think_random_card()
-# print(cards_thought[0])
-# print(cards_thought[2])
+
 print(f'Ora creerò un mazzo...')
 create_new_deck()
-print(f'Il mazzo ha {len(decks[0].cards_deck)} carte.')
+print(f'{decks[0]}')
 print(f'Ora elencherò le prime 10 carte del mazzo...')
 for a in range(10):
     decks[0].look_next_card()
@@ -22,13 +17,8 @@ for a in range(20):
 print(f'Ora elencherò le ultime 10 carte del mazzo...')
 for a in range(10):
     decks[0].look_next_card()
+decks[0].look_next_card()
 print(f'Ora mischierò il mazzo...')
 decks[0].shuffle_deck()
-# print(decks[0])
-# print(decks[0].cards_deck[0])
-# print(decks[0].cards_deck[1])
-# print(decks[0].cards_deck[1])
-# decks[0].look_next_card()
-# decks[0].look_next_card()
-# decks[0].look_next_card()
-# decks[0].look_next_card()
+print(f'Ora guarderò la prossima carta del mazzo...')
+decks[0].look_next_card()
