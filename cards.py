@@ -8,7 +8,6 @@ suits = ('spade', 'coppe', 'denari', 'bastoni')
 numbers = (range(1, 11))
 decks = []
 hand = []
-c = 0
 
 
 class Card :
@@ -57,9 +56,10 @@ def think_random_card() :
 class Deck :
     '''a class representing a deck'''
 
-    def __init__(self, cards_deck=[]) :
+    def __init__(self, cards_deck=[], c=0) :
         '''initialise deck attributes'''
         self.cards_deck = cards_deck
+        self.c = c
 
     def __str__(self) :
         '''better describe the deck'''
@@ -68,11 +68,20 @@ class Deck :
     def shuffle_deck(self) :
         '''shuffle the deck'''
         print('Il mazzo è stato mischiato.')
+        self.c = 0
         return random.shuffle(self.cards_deck)
 
     def first_card(self) :
         #     '''look at the first card in the deck'''
-        return print(self.cards_deck[0])
+        print(self.cards_deck[0])
+        self.c = +1
+
+    def next_card(self) :
+        #     '''look at the first card in the deck'''
+        print(self.cards_deck[self.c])
+        self.c = self.c + 1
+        if self.c >= len(self.cards_deck):
+            self.c = 0
 
 
 
