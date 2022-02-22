@@ -86,6 +86,11 @@ class Deck:
         for a in range(x):
             print(self.cards_deck[a])
 
+    def last_x_cards(self, y):
+        """look at the first X card in the deck"""
+        for a in range(-1, -y-1, -1):
+            print(self.cards_deck[a])
+
 
 def create_new_deck():
     """create a new deck"""
