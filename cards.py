@@ -1,6 +1,5 @@
 # some exercises about a deck of cards_thought
 import random
-import itertools
 
 # define the lists needed
 cards_thought = []
@@ -49,12 +48,11 @@ def think_random_card():
 class Deck:
     """a class representing a deck"""
 
-    def __init__(self, cards_deck=None, c=0):
+    def __init__(self, cards_deck=None):
         """initialise deck attributes"""
         if cards_deck is None:
             cards_deck = []
         self.cards_deck = cards_deck
-        self.c = c
 
     def __str__(self):
         """better describe the deck"""
@@ -63,42 +61,30 @@ class Deck:
     def shuffle_deck(self):
         """shuffle the deck"""
         print('Il mazzo è stato mischiato.')
-        self.c = 0
         return random.shuffle(self.cards_deck)
 
     def first_card(self):
-        #     """look at the first card in the deck"""
+        """look at the first card in the deck"""
         print(self.cards_deck[0])
-        self.c = +1
 
     def last_card(self):
         """look at the last card of the deck"""
         print(self.cards_deck[-1])
-        self.c = len(self.cards_deck)
-
-    def next_card(self):
-        """look at the next card in the deck"""
-        print(self.cards_deck[self.c])
-        self.c = self.c + 1
-        if self.c >= len(self.cards_deck):
-            self.c = 0
 
     def see_cards(self):
-        #     """look at all the cards of the deck"""
-        i1 = itertools.cycle(self.cards_deck)
-        c = 1
-        for a in i1:
-            print(a)
-            c += 1
-            if c == len(self.cards_deck):
-                break
+        """look at all the cards of the deck"""
+        for card in self.cards_deck:
+            print(card)
 
     def first_last(self):
         add = self.cards_deck.pop(0)
         self.cards_deck.append(add)
         print(f"Adesso la prima carta è l'ultima!")
-        self.c = self.c - 1
 
+    def first_x_cards(self, x):
+        """look at the first X card in the deck"""
+        for a in range(x):
+            print(self.cards_deck[a])
 
 
 def create_new_deck():
