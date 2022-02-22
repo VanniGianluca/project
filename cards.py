@@ -77,28 +77,24 @@ class Deck :
         self.c = +1
 
     def next_card(self) :
-        #     '''look at the first card in the deck'''
+        #     '''look at the next card in the deck'''
         print(self.cards_deck[self.c])
         self.c = self.c + 1
         if self.c >= len(self.cards_deck):
             self.c = 0
 
-
-
-
-    # def see_cards(self):
-    #     #     '''look at the cards in the deck one after the other'''
-    #     i1 = itertools.cycle(self.cards_deck)
-    #     c = 1
-    #     for a in i1:
-    #         print(a)
-    #         c+=1
-    #         if c==len(self.cards_deck):
-    #             break
-
+    def see_cards(self):
+        #     '''look at all the cards of the deck'''
+        i1 = itertools.cycle(self.cards_deck)
+        c = 1
+        for a in i1:
+            print(a)
+            c+=1
+            if c==len(self.cards_deck):
+                break
 
 def create_new_deck() :
-    '''create a new dew'''
+    '''create a new new deck'''
     new_deck = Deck()
     new_deck.cards_deck = [Card(number, suit) for number in numbers for suit in suits]
     return decks.append(new_deck)
