@@ -1,8 +1,13 @@
-you can see a random card of the deck                               done
-you can divide the deck into smaller decks
-you can put individual cards in other decks
-you can put random cards into other decks
-you can shuffle decks
+TODO: you can see a random card of the deck /// done
+TODO: you can see first card /// done
+TODO: you can see last card /// done
+TODO: you can shuffle decks /// done
+TODO: put first card in the end of the deck /// done
 
-una carta può:
-essere generata
+TODO: you can divide the deck into smaller decks
+TODO: you can put individual cards in other decks
+TODO: you can put random cards into other decks
+TODO: create a player class that can hold cards
+TODO: create the concept of sette e mezzo
+TODO: creaate concept of ai player banco
+

@@ -88,6 +88,13 @@ class Deck:
             if c == len(self.cards_deck):
                 break
 
+    def first_last(self):
+        add = self.cards_deck.pop(0)
+        self.cards_deck.append(add)
+        print(f"Adesso la prima carta è l'ultima!")
+        self.c = self.c - 1
+
+
 
 def create_new_deck():
     """create a new deck"""
