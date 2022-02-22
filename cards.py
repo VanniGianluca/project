@@ -41,18 +41,6 @@ def think_random_card() :
     cards_thought.append(new_card)
     print(f'Sto pensando a un {new_card.number} di {new_card.suit}.')
 
-
-# def cycle(iterable) :
-#     # cycle('ABCD') --> A B C D A B C D A B C D ...
-#     saved = []
-#     for element in iterable :
-#         yield element
-#         saved.append(element)
-#     while saved :
-#         for element in saved :
-#             yield element
-
-
 class Deck :
     '''a class representing a deck'''
 
