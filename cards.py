@@ -29,10 +29,6 @@ class Card:
         """describes better the card"""
         return f'Questa carta è un {self.number} di {self.suit}'
 
-    def describe_card(self):
-        """describe the card"""
-        print(f'Questa carta è un {self.number} di {self.suit}')
-
 
 def think_random_card():
     """generate a random card and append it to cards_thought list"""
