@@ -67,19 +67,24 @@ class Deck:
         return random.shuffle(self.cards_deck)
 
     def first_card(self):
-        #     '''look at the first card in the deck'''
+        #     """look at the first card in the deck"""
         print(self.cards_deck[0])
         self.c = +1
 
+    def last_card(self):
+        """look at the last card of the deck"""
+        print(self.cards_deck[-1])
+        self.c = len(self.cards_deck)
+
     def next_card(self):
-        #     '''look at the next card in the deck'''
+        """look at the next card in the deck"""
         print(self.cards_deck[self.c])
         self.c = self.c + 1
         if self.c >= len(self.cards_deck):
             self.c = 0
 
     def see_cards(self):
-        #     '''look at all the cards of the deck'''
+        #     """look at all the cards of the deck"""
         i1 = itertools.cycle(self.cards_deck)
         c = 1
         for a in i1:
