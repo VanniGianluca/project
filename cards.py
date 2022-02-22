@@ -10,61 +10,68 @@ decks = []
 hand = []
 
 
-class Card :
-    '''class representing a card of a deck'''
+class Card:
+    """class representing a card of a deck"""
 
-    def __init__(self, number, suit) :
-        '''initialise card object'''
+    def __init__(self, number, suit):
+        """initialise card object"""
+        # noinspection PyShadowingNames
         suits = ('spade', 'coppe', 'denari', 'bastoni')
+        # noinspection PyShadowingNames
         numbers = list(range(1, 11))
         self.number = number
         self.suit = suit
-        if self.suit not in suits :
+        if self.suit not in suits:
             raise ValueError("Il seme non è valido!")
-        if self.number not in numbers :
+        if self.number not in numbers:
             raise ValueError("Il seme non è valido!")
 
-    def __str__(self) :
-        '''describes better the card'''
+    def __str__(self):
+        """describes better the card"""
         return f'Questa carta è un {self.number} di {self.suit}'
 
-    def describe_card(self) :
-        '''describe the card'''
+    def describe_card(self):
+        """describe the card"""
         print(f'Questa carta è un {self.number} di {self.suit}')
 
 
-def think_random_card() :
-    '''generate a random card and append it to cards_thought list'''
+def think_random_card():
+    """generate a random card and append it to cards_thought list"""
+    # noinspection PyShadowingNames
     suits = ('spade', 'coppe', 'denari', 'bastoni')
+    # noinspection PyShadowingNames
     numbers = list(range(1, 11))
     new_card = Card(random.choice(numbers), random.choice(suits))
     cards_thought.append(new_card)
     print(f'Sto pensando a un {new_card.number} di {new_card.suit}.')
 
-class Deck :
-    '''a class representing a deck'''
 
-    def __init__(self, cards_deck=[], c=0) :
-        '''initialise deck attributes'''
+class Deck:
+    """a class representing a deck"""
+
+    def __init__(self, cards_deck=None, c=0):
+        """initialise deck attributes"""
+        if cards_deck is None:
+            cards_deck = []
         self.cards_deck = cards_deck
         self.c = c
 
-    def __str__(self) :
-        '''better describe the deck'''
+    def __str__(self):
+        """better describe the deck"""
         return f'Questo mazzo ha {len(self.cards_deck)} carte.'
 
-    def shuffle_deck(self) :
-        '''shuffle the deck'''
+    def shuffle_deck(self):
+        """shuffle the deck"""
         print('Il mazzo è stato mischiato.')
         self.c = 0
         return random.shuffle(self.cards_deck)
 
-    def first_card(self) :
+    def first_card(self):
         #     '''look at the first card in the deck'''
         print(self.cards_deck[0])
         self.c = +1
 
-    def next_card(self) :
+    def next_card(self):
         #     '''look at the next card in the deck'''
         print(self.cards_deck[self.c])
         self.c = self.c + 1
@@ -77,12 +84,13 @@ class Deck :
         c = 1
         for a in i1:
             print(a)
-            c+=1
-            if c==len(self.cards_deck):
+            c += 1
+            if c == len(self.cards_deck):
                 break
 
-def create_new_deck() :
-    '''create a new new deck'''
+
+def create_new_deck():
+    """create a new deck"""
     new_deck = Deck()
     new_deck.cards_deck = [Card(number, suit) for number in numbers for suit in suits]
     return decks.append(new_deck)
