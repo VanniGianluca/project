@@ -2,22 +2,14 @@
 import random
 
 # define the lists needed
-cards_thought = []
 suits = ('spade', 'coppe', 'denari', 'bastoni')
 numbers = (range(1, 11))
-decks = []
-hand = []
-
 
 class Card:
     """class representing a card of a deck"""
 
     def __init__(self, number, suit):
         """initialise card object"""
-        # noinspection PyShadowingNames
-        suits = ('spade', 'coppe', 'denari', 'bastoni')
-        # noinspection PyShadowingNames
-        numbers = list(range(1, 11))
         self.number = number
         self.suit = suit
         if self.suit not in suits:
@@ -31,14 +23,8 @@ class Card:
 
 
 def think_random_card():
-    """generate a random card and append it to cards_thought list"""
-    # noinspection PyShadowingNames
-    suits = ('spade', 'coppe', 'denari', 'bastoni')
-    # noinspection PyShadowingNames
-    numbers = list(range(1, 11))
-    new_card = Card(random.choice(numbers), random.choice(suits))
-    cards_thought.append(new_card)
-    print(f'Sto pensando a un {new_card.number} di {new_card.suit}.')
+    """generate a random card"""
+    return Card(random.choice(numbers), random.choice(suits))
 
 
 class Deck:
@@ -57,7 +43,7 @@ class Deck:
     def shuffle_deck(self):
         """shuffle the deck"""
         print('Il mazzo è stato mischiato.')
-        return random.shuffle(self.cards_deck)
+        random.shuffle(self.cards_deck)
 
     def first_card(self):
         """look at the first card in the deck"""
@@ -87,9 +73,16 @@ class Deck:
         for a in range(-1, -y-1, -1):
             print(self.cards_deck[a])
 
+    def split_deck(self):
+        """divides the deck almost in half and put one half on the other"""
+        j = random.randrange(14, 26)
+        first_part = self.cards_deck[:j]
+        second_part = self.cards_deck[j:]
+        self.cards_deck = second_part + first_part
+        print(f"Il mazzo è stato splittato...")
 
 def create_new_deck():
     """create a new deck"""
     new_deck = Deck()
     new_deck.cards_deck = [Card(number, suit) for number in numbers for suit in suits]
-    return decks.append(new_deck)
+    return new_deck
