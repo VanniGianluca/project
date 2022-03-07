@@ -60,8 +60,8 @@ class Deck:
 
     def first_last(self):
         add = self.cards_deck.pop(0)
-        self.cards_deck.append(add)
         print(f"Adesso la prima carta è l'ultima!")
+        return self.cards_deck.append(add)
 
     def first_x_cards(self, x):
         """look at the first X card in the deck"""
