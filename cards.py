@@ -2,12 +2,11 @@
 import random
 
 # define the lists needed
-cards_thought = []
 suits = ('spade', 'coppe', 'denari', 'bastoni')
 numbers = (range(1, 11))
+cards_thought = []
 decks = []
 hand = []
-
 
 class Card:
     """class representing a card of a deck"""
@@ -87,6 +86,14 @@ class Deck:
         for a in range(-1, -y-1, -1):
             print(self.cards_deck[a])
 
+    def split_deck(self):
+        """divides the deck almost in half and put one half on the other"""
+        j = random.randrange(14, 26)
+        first_part = self.cards_deck[:j]
+        second_part = self.cards_deck[j:]
+        self.cards_deck = second_part + first_part
+        print(f"Il mazzo è stato splittato...")
+        return self.cards_deck
 
 def create_new_deck():
     """create a new deck"""
